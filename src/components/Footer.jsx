@@ -1,31 +1,23 @@
 import { motion } from 'framer-motion'
-import { Twitter, Linkedin, Instagram, Github, Mail } from 'lucide-react'
+import { Mail } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import './Footer.css'
 
 const Footer = () => {
-  const socialLinks = [
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Github, href: '#', label: 'GitHub' },
-  ]
-
   const footerLinks = [
     {
-      title: 'Product',
-      links: ['Features', 'Pricing', 'Roadmap', 'Changelog']
-    },
-    {
       title: 'Company',
-      links: ['About', 'Blog', 'Careers', 'Press']
-    },
-    {
-      title: 'Resources',
-      links: ['Documentation', 'Help Center', 'Community', 'API']
+      links: [
+        { name: 'About Amalaxis', href: 'https://www.amalaxis.ai/', isExternal: true }
+      ]
     },
     {
       title: 'Legal',
-      links: ['Privacy', 'Terms', 'Security', 'Cookies']
+      links: [
+        { name: 'Privacy Policy', href: '/privacy-policy', isRoute: true },
+        { name: 'Support', href: '/support', isRoute: true },
+        { name: 'Contact', href: '/contact', isRoute: true }
+      ]
     },
   ]
 
@@ -36,35 +28,15 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="footer__brand">
             <a href="#" className="footer__logo">
-              <div className="footer__logo-icon">
-                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <defs>
-                    <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#4D5DFB" />
-                      <stop offset="100%" stopColor="#08C8F6" />
-                    </linearGradient>
-                  </defs>
-                  <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient)" />
-                  <text x="20" y="26" fontFamily="Manrope" fontSize="16" fontWeight="bold" fill="white" textAnchor="middle">F</text>
-                </svg>
-              </div>
-              <span>Feel <span>PRO</span></span>
+              <img 
+                src="/assets/Logo Feel Pro.svg" 
+                alt="Feel PRO" 
+                className="footer__logo-img"
+              />
             </a>
             <p className="footer__mission">
               Empowering professionals to achieve more with AI-driven productivity.
             </p>
-            <div className="footer__social">
-              {socialLinks.map((social, index) => (
-                <a 
-                  key={index} 
-                  href={social.href} 
-                  className="footer__social-link"
-                  aria-label={social.label}
-                >
-                  <social.icon size={18} />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Links Columns */}
@@ -74,7 +46,13 @@ const Footer = () => {
               <ul>
                 {column.links.map((link, i) => (
                   <li key={i}>
-                    <a href="#">{link}</a>
+                    {link.isRoute ? (
+                      <Link to={link.href}>{link.name}</Link>
+                    ) : link.isExternal ? (
+                      <a href={link.href} target="_blank" rel="noopener noreferrer">{link.name}</a>
+                    ) : (
+                      <a href={link.href}>{link.name}</a>
+                    )}
                   </li>
                 ))}
               </ul>

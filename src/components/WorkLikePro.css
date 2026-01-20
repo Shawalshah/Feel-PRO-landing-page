@@ -413,20 +413,107 @@
 
 /* Responsive - Mobile */
 @media (max-width: 600px) {
+  .work-pro__tag {
+    padding: 6px 14px;
+    font-size: 10px;
+    margin-bottom: 20px;
+  }
+
+  .work-pro__title {
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+  }
+
+  .work-pro__desc {
+    font-size: 14px;
+  }
+
+  .work-pro__header {
+    margin-bottom: 32px;
+  }
+
+  /* Features Grid on Mobile */
+  .work-pro__features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .work-pro__feature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 16px 12px;
+    border-radius: 16px;
+  }
+
+  .work-pro__feature:hover {
+    transform: translateY(-4px);
+  }
+
+  .work-pro__feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .work-pro__feature-content {
+    text-align: center;
+  }
+
+  .work-pro__feature-content h4 {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .work-pro__feature-content p {
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .work-pro__feature-arrow {
+    display: none;
+  }
+
+  /* Visual Cards */
   .work-pro__cards {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
 
   .work-pro__card--voice {
     grid-column: span 1;
   }
 
-  .work-pro__feature {
-    padding: 14px 16px;
+  .work-pro__card {
+    padding: 18px;
+    border-radius: 16px;
   }
 
-  .work-pro__feature-icon {
-    width: 40px;
-    height: 40px;
+  .work-pro__waveform {
+    height: 42px;
+    padding: 8px 14px;
+  }
+
+  .work-pro__card-result {
+    padding: 10px 12px;
+  }
+
+  .work-pro__card-result span {
+    font-size: 12px;
+  }
+
+  .work-pro__image-preview {
+    height: 70px;
+  }
+
+  .work-pro__text-input {
+    padding: 10px 12px;
+  }
+
+  .work-pro__text-input span {
+    font-size: 12px;
   }
 }

@@ -26,7 +26,7 @@ const SystemFlow = () => {
             {steps.map((step, index) => {
               const IconComponent = step.icon
               return (
-                <div key={index} className="system-flow__step">
+                <div key={index} className="system-flow__step" data-step={index + 1}>
                   <div 
                     className="system-flow__step-icon"
                     style={{ 

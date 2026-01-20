@@ -1,4 +1,4 @@
-import { Mic, MessageSquare, Lightbulb, Bell, User, Bot } from 'lucide-react'
+import { Mic, MessageSquare, Lightbulb, Users, User, Bot } from 'lucide-react'
 import './AIAgent.css'
 
 const AIAgent = () => {
@@ -6,7 +6,7 @@ const AIAgent = () => {
     { icon: Mic, title: 'Voice Assistant', desc: 'Talk naturally' },
     { icon: MessageSquare, title: 'Smart Chat', desc: 'Plan, reflect, ask' },
     { icon: Lightbulb, title: 'Daily AI Tips', desc: 'Context-aware' },
-    { icon: Bell, title: 'Intelligent Reminders', desc: 'Never miss a beat' },
+    { icon: Users, title: 'Friends & Foes', desc: 'Know your patterns' },
   ]
 
   return (

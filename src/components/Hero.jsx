@@ -1,11 +1,37 @@
-import { motion } from 'framer-motion'
-import { Sparkles, Mic } from 'lucide-react'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { Sparkles, Mic, Type, Image, Upload } from 'lucide-react'
 import './Hero.css'
 
 const Hero = () => {
+  const [activeTab, setActiveTab] = useState('voice')
+
+  const tabs = [
+    { id: 'voice', label: 'Voice', icon: Mic },
+    { id: 'text', label: 'Text', icon: Type },
+    { id: 'image', label: 'Image', icon: Image },
+  ]
+
+  const tabContent = {
+    voice: {
+      label: 'Voice Task Created',
+      text: '"Prepare quarterly report"',
+      description: 'Speak naturally, AI understands',
+    },
+    text: {
+      label: 'Text Task Created',
+      text: '"Design new landing page"',
+      description: 'Type your task, AI structures it',
+    },
+    image: {
+      label: 'Image Task Created',
+      text: '"Whiteboard notes captured"',
+      description: 'Upload image, AI extracts tasks',
+    },
+  }
 
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       {/* Background Elements */}
       <div className="hero__bg">
         <div className="hero__bg-gradient"></div>
@@ -70,8 +96,8 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Your AI-powered productivity companion that thinks, speaks, 
-          listens, and executes with you — daily.
+          Your personal AI agent that plans, prioritizes, and executes tasks 
+          autonomously — so you can focus on what matters.
         </motion.p>
 
         <motion.div
@@ -104,33 +130,109 @@ const Hero = () => {
               </div>
               <span className="hero__visual-title">Feel PRO Dashboard</span>
             </div>
+            
             <div className="hero__visual-content">
-              <div className="hero__visual-task">
-                <div className="hero__visual-task-icon">
-                  <Mic size={16} />
-                </div>
-                <div className="hero__visual-task-info">
-                  <span className="hero__visual-task-label">Voice Task Created</span>
-                  <span className="hero__visual-task-text">"Prepare quarterly report"</span>
-                </div>
-                <div className="hero__visual-task-badge">AI</div>
-              </div>
-              <div className="hero__visual-waveform">
-                {[...Array(24)].map((_, i) => (
-                  <motion.div
-                    key={i}
-                    className="hero__visual-wave-bar"
-                    animate={{
-                      scaleY: [0.3, Math.random() * 0.7 + 0.3, 0.3],
-                    }}
-                    transition={{
-                      duration: 0.8,
-                      repeat: Infinity,
-                      delay: i * 0.05,
-                    }}
-                  />
-                ))}
-              </div>
+              {/* Tab Content */}
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.3 }}
+                  className="hero__tab-content"
+                >
+                  {/* Task Card */}
+                  <div className={`hero__visual-task hero__visual-task--${activeTab}`}>
+                    <div className="hero__visual-task-icon">
+                      {activeTab === 'voice' && <Mic size={16} />}
+                      {activeTab === 'text' && <Type size={16} />}
+                      {activeTab === 'image' && <Image size={16} />}
+                    </div>
+                    <div className="hero__visual-task-info">
+                      <span className="hero__visual-task-label">{tabContent[activeTab].label}</span>
+                      <span className="hero__visual-task-text">{tabContent[activeTab].text}</span>
+                    </div>
+                    <div className="hero__visual-task-badge">AI</div>
+                  </div>
+
+                  {/* Dynamic Visual based on tab */}
+                  <div className="hero__visual-demo">
+                    {activeTab === 'voice' && (
+                      <div className="hero__visual-voice">
+                        <div className="hero__visual-waveform">
+                          {[...Array(24)].map((_, i) => (
+                            <motion.div
+                              key={i}
+                              className="hero__visual-wave-bar"
+                              animate={{
+                                scaleY: [0.3, Math.random() * 0.7 + 0.3, 0.3],
+                              }}
+                              transition={{
+                                duration: 0.8,
+                                repeat: Infinity,
+                                delay: i * 0.05,
+                              }}
+                            />
+                          ))}
+                        </div>
+                        <span className="hero__visual-demo-text">{tabContent[activeTab].description}</span>
+                      </div>
+                    )}
+
+                    {activeTab === 'text' && (
+                      <div className="hero__visual-text">
+                        <div className="hero__visual-text-input">
+                          <motion.span
+                            className="hero__visual-typing"
+                            initial={{ width: 0 }}
+                            animate={{ width: '100%' }}
+                            transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                          >
+                            Design new landing page for Q2...
+                          </motion.span>
+                          <motion.span 
+                            className="hero__visual-cursor"
+                            animate={{ opacity: [1, 0, 1] }}
+                            transition={{ duration: 0.8, repeat: Infinity }}
+                          />
+                        </div>
+                        <span className="hero__visual-demo-text">{tabContent[activeTab].description}</span>
+                      </div>
+                    )}
+
+                    {activeTab === 'image' && (
+                      <div className="hero__visual-image">
+                        <div className="hero__visual-upload">
+                          <div className="hero__visual-upload-icon">
+                            <Upload size={24} />
+                          </div>
+                          <div className="hero__visual-upload-preview">
+                            <div className="hero__visual-upload-img">
+                              <svg viewBox="0 0 60 40" fill="none">
+                                <rect x="2" y="2" width="56" height="36" rx="4" stroke="currentColor" strokeWidth="1.5" strokeDasharray="3 2" />
+                                <rect x="8" y="8" width="20" height="3" rx="1.5" fill="currentColor" opacity="0.6" />
+                                <rect x="8" y="14" width="44" height="2" rx="1" fill="currentColor" opacity="0.3" />
+                                <rect x="8" y="19" width="38" height="2" rx="1" fill="currentColor" opacity="0.3" />
+                                <rect x="8" y="24" width="30" height="2" rx="1" fill="currentColor" opacity="0.3" />
+                                <circle cx="45" cy="12" r="6" stroke="currentColor" strokeWidth="1.5" opacity="0.5" />
+                              </svg>
+                            </div>
+                            <motion.div 
+                              className="hero__visual-scan-line"
+                              animate={{ top: ['0%', '100%', '0%'] }}
+                              transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+                            />
+                          </div>
+                        </div>
+                        <span className="hero__visual-demo-text">{tabContent[activeTab].description}</span>
+                      </div>
+                    )}
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+
+              {/* Stats */}
               <div className="hero__visual-stats">
                 <div className="hero__visual-stat">
                   <span className="hero__visual-stat-number">12</span>
@@ -144,6 +246,23 @@ const Hero = () => {
                   <span className="hero__visual-stat-number">92%</span>
                   <span className="hero__visual-stat-label">Productivity</span>
                 </div>
+              </div>
+
+              {/* Tabs at Bottom */}
+              <div className="hero__tabs">
+                {tabs.map((tab) => {
+                  const IconComponent = tab.icon
+                  return (
+                    <button
+                      key={tab.id}
+                      className={`hero__tab ${activeTab === tab.id ? 'hero__tab--active' : ''}`}
+                      onClick={() => setActiveTab(tab.id)}
+                    >
+                      <IconComponent size={16} />
+                      <span>{tab.label}</span>
+                    </button>
+                  )
+                })}
               </div>
             </div>
           </div>

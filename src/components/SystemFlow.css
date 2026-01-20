@@ -219,16 +219,51 @@
 
 /* Responsive - Tablet */
 @media (max-width: 900px) {
+  .system-flow__title {
+    white-space: normal;
+  }
+
   .system-flow__steps {
-    flex-direction: column;
-    gap: 32px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
+  /* Last item (5th) centered */
+  .system-flow__step:last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 160px;
+  }
+
+  .system-flow__step {
+    position: relative;
+  }
+
+  /* Step number badge */
+  .system-flow__step::before {
+    content: attr(data-step);
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #4D5DFB 0%, #08C8F6 100%);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    border-radius: 50%;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    z-index: 5;
+    box-shadow: 0 2px 8px rgba(77, 93, 251, 0.3);
   }
 
   .system-flow__arrow {
-    position: static;
-    transform: rotate(90deg);
-    margin: -12px 0;
+    display: none;
   }
 
   .system-flow__line-container {
@@ -236,14 +271,22 @@
   }
 
   .system-flow__step-icon {
-    width: 64px;
-    height: 64px;
-    border-radius: 18px;
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
   }
 
   .system-flow__step-icon svg {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .system-flow__step-label {
+    font-size: 15px;
+  }
+
+  .system-flow__step-desc {
+    font-size: 12px;
   }
 
   .system-flow__diagram {
@@ -254,7 +297,39 @@
 /* Responsive - Mobile */
 @media (max-width: 600px) {
   .system-flow__header {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
+  }
+
+  .system-flow__steps {
+    gap: 20px;
+    max-width: 300px;
+  }
+
+  .system-flow__step-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+  }
+
+  .system-flow__step-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .system-flow__step::before {
+    width: 22px;
+    height: 22px;
+    font-size: 11px;
+    top: -5px;
+    right: -5px;
+  }
+
+  .system-flow__step-label {
+    font-size: 14px;
+  }
+
+  .system-flow__step-desc {
+    font-size: 11px;
   }
 
   .system-flow__loop {

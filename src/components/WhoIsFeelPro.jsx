@@ -1,38 +1,38 @@
 import { motion } from 'framer-motion'
-import { Rocket, Briefcase, Home, GraduationCap, Palette, Users } from 'lucide-react'
+import { Briefcase, GraduationCap, BookOpen, Code, Building2, Users } from 'lucide-react'
 import './WhoIsFeelPro.css'
 
 const WhoIsFeelPro = () => {
   const personas = [
     { 
-      icon: Rocket, 
-      title: 'Founders', 
-      desc: 'Building the future with limited time',
-      highlight: 'Scale Impact'
-    },
-    { 
       icon: Briefcase, 
-      title: 'Professionals', 
-      desc: 'Managing complex workloads daily',
-      highlight: 'Stay Ahead'
-    },
-    { 
-      icon: Home, 
-      title: 'Remote Workers', 
-      desc: 'Blending work and life boundaries',
-      highlight: 'Work Anywhere'
+      title: "CEO's", 
+      desc: 'Optimizing strategy and leadership performance',
+      highlight: 'Lead Better'
     },
     { 
       icon: GraduationCap, 
-      title: 'Ambitious Students', 
-      desc: 'Balancing studies and goals',
-      highlight: 'Build Habits'
+      title: 'Students', 
+      desc: 'Mastering focus and academic excellence',
+      highlight: 'Learn More'
     },
     { 
-      icon: Palette, 
-      title: 'Creators', 
-      desc: 'Turning ideas into reality',
-      highlight: 'Create More'
+      icon: BookOpen, 
+      title: 'Teachers', 
+      desc: 'Structuring knowledge and delivery',
+      highlight: 'Teach Better'
+    },
+    { 
+      icon: Code, 
+      title: 'Developers', 
+      desc: 'Achieving deep flow state for coding',
+      highlight: 'Code Faster'
+    },
+    { 
+      icon: Building2, 
+      title: 'Offices', 
+      desc: 'Synchronizing team productivity and goals',
+      highlight: 'Team Flow'
     },
   ]
 

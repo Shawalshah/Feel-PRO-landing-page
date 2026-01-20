@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
-const Header = () => {
+const PageHeader = () => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
@@ -15,7 +16,6 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = 'hidden'
@@ -28,12 +28,12 @@ const Header = () => {
   }, [mobileMenuOpen])
 
   const navItems = [
-    { label: 'Home', href: '#hero' },
-    { label: 'Features', href: '#features' },
-    { label: 'How it Works', href: '#system-flow' },
-    { label: 'Interface', href: '#app-interface' },
-    { label: 'For Who', href: '#who-is-it-for' },
-    { label: 'Privacy', href: '#privacy' },
+    { label: 'Home', href: '/' },
+    { label: 'Features', href: '/#features' },
+    { label: 'How it Works', href: '/#system-flow' },
+    { label: 'Interface', href: '/#app-interface' },
+    { label: 'For Who', href: '/#who-is-it-for' },
+    { label: 'Privacy', href: '/#privacy' },
   ]
 
   const closeMenu = () => setMobileMenuOpen(false)
@@ -47,40 +47,40 @@ const Header = () => {
     >
       <div className="header__container">
         {/* Logo */}
-        <a href="#" className="header__logo" onClick={closeMenu}>
+        <Link to="/" className="header__logo" onClick={closeMenu}>
           <img 
             src="/assets/Logo Feel Pro.svg" 
             alt="Feel PRO" 
             className="header__logo-img"
           />
-        </a>
+        </Link>
 
         {/* Navigation */}
         <nav className={`header__nav ${mobileMenuOpen ? 'header__nav--open' : ''}`}>
           {navItems.map((item, index) => (
-            <a 
+            <Link 
               key={index} 
-              href={item.href} 
+              to={item.href} 
               className="header__nav-link"
               onClick={closeMenu}
             >
               {item.label}
-            </a>
+            </Link>
           ))}
           
-          {/* Mobile CTA - Only visible in mobile menu */}
-          <a href="#cta-card" className="header__mobile-cta" onClick={closeMenu}>
+          {/* Mobile CTA */}
+          <Link to="/#cta-card" className="header__mobile-cta" onClick={closeMenu}>
             Get Started
             <ArrowRight size={18} />
-          </a>
+          </Link>
         </nav>
 
         {/* Desktop CTA */}
         <div className="header__actions">
-          <a href="#cta-card" className="btn btn--primary header__cta">
+          <Link to="/#cta-card" className="btn btn--primary header__cta" onClick={closeMenu}>
             Get Started
             <ArrowRight size={16} />
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -98,4 +98,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default PageHeader

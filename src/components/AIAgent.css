@@ -349,6 +349,65 @@
 
 /* Responsive - Mobile */
 @media (max-width: 600px) {
+  .ai-agent__tag {
+    margin-bottom: 20px;
+    padding: 6px 14px;
+    font-size: 10px;
+  }
+
+  .ai-agent__title {
+    font-size: 1.5rem;
+    margin-bottom: 24px;
+  }
+
+  .ai-agent__features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 100%;
+  }
+
+  .ai-agent__feature {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 16px 12px;
+    background: var(--white);
+    border-radius: 16px;
+    border: 1px solid var(--slate-100);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  }
+
+  .ai-agent__feature:hover {
+    transform: translateY(-4px);
+  }
+
+  .ai-agent__feature-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+  }
+
+  .ai-agent__feature-text {
+    text-align: center;
+  }
+
+  .ai-agent__feature-text h4 {
+    font-size: 13px;
+    margin-bottom: 2px;
+  }
+
+  .ai-agent__feature-text p {
+    font-size: 11px;
+    color: var(--slate-500);
+  }
+
+  .ai-agent__chat {
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
   .ai-agent__chat-header {
     padding: 14px 16px;
   }
@@ -357,16 +416,25 @@
     padding: 16px;
   }
 
+  .ai-agent__message p {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+
   .ai-agent__voice {
     padding: 14px 16px;
   }
 
-  .ai-agent__feature-icon {
-    width: 40px;
-    height: 40px;
+  .ai-agent__voice-btn {
+    width: 42px;
+    height: 42px;
   }
 
-  .ai-agent__feature-text h4 {
-    font-size: 15px;
+  .ai-agent__waveform {
+    height: 32px;
+  }
+
+  .ai-agent__voice-label {
+    font-size: 12px;
   }
 }
