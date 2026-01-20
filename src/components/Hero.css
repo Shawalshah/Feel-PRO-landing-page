@@ -1,0 +1,336 @@
+.hero {
+  min-height: 100vh;
+  padding-top: clamp(200px, 18vh, 200px);
+  padding-bottom: clamp(40px, 6vh, 80px);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+/* Background */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.hero__bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(77, 93, 251, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(8, 200, 246, 0.06) 0%, transparent 40%),
+    radial-gradient(circle at 50% 90%, rgba(77, 93, 251, 0.04) 0%, transparent 30%);
+}
+
+.hero__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Content */
+.hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  margin-bottom: clamp(20px, 3vh, 32px);
+}
+
+.hero__title {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--slate-900);
+  margin-bottom: clamp(16px, 2vh, 24px);
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  color: var(--slate-600);
+  max-width: 580px;
+  margin: 0 auto clamp(24px, 4vh, 40px);
+  line-height: 1.7;
+}
+
+.hero__cta .btn--large {
+  padding: 16px 32px;
+  font-size: 16px;
+}
+
+/* Hero Visual */
+.hero__visual {
+  margin-top: clamp(32px, 5vh, 60px);
+  perspective: 1000px;
+}
+
+.hero__visual-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+  border: 1px solid var(--slate-100);
+}
+
+.hero__visual-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--slate-50);
+  border-bottom: 1px solid var(--slate-100);
+}
+
+.hero__visual-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.hero__visual-dots span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.hero__visual-dots span:nth-child(1) { background: #FF5F57; }
+.hero__visual-dots span:nth-child(2) { background: #FFBD2E; }
+.hero__visual-dots span:nth-child(3) { background: #28CA41; }
+
+.hero__visual-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--slate-500);
+}
+
+.hero__visual-content {
+  padding: 20px;
+}
+
+.hero__visual-task {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px;
+  background: linear-gradient(135deg, var(--peach-100), var(--peach-200));
+  border-radius: var(--radius-md);
+  margin-bottom: 16px;
+}
+
+.hero__visual-task-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  color: var(--white);
+  border-radius: var(--radius-sm);
+}
+
+.hero__visual-task-info {
+  flex: 1;
+  text-align: left;
+}
+
+.hero__visual-task-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--primary-600);
+  margin-bottom: 2px;
+}
+
+.hero__visual-task-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--slate-900);
+}
+
+.hero__visual-task-badge {
+  padding: 4px 10px;
+  background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+  color: var(--white);
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+}
+
+.hero__visual-waveform {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  height: 40px;
+  margin-bottom: 16px;
+}
+
+.hero__visual-wave-bar {
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to top, var(--primary-500), var(--secondary-500));
+  border-radius: 2px;
+  transform-origin: center;
+}
+
+.hero__visual-stats {
+  display: flex;
+  justify-content: center;
+  gap: 36px;
+}
+
+.hero__visual-stat {
+  text-align: center;
+}
+
+.hero__visual-stat-number {
+  display: block;
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--slate-900);
+}
+
+.hero__visual-stat-label {
+  font-size: 12px;
+  color: var(--slate-500);
+}
+
+/* Large screens - 1080p and above */
+@media (min-width: 1200px) and (max-height: 900px) {
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 40px;
+  }
+
+  .hero__title {
+    font-size: 3.2rem;
+  }
+
+  .hero__visual {
+    margin-top: 40px;
+  }
+
+  .hero__visual-card {
+    max-width: 580px;
+  }
+
+  .hero__visual-content {
+    padding: 16px;
+  }
+
+  .hero__visual-waveform {
+    height: 36px;
+    margin-bottom: 14px;
+  }
+
+  .hero__visual-stat-number {
+    font-size: 22px;
+  }
+}
+
+/* Very tall screens */
+@media (min-height: 900px) {
+  .hero {
+    padding-top: 140px;
+  }
+}
+
+/* Medium screens */
+@media (max-width: 1024px) {
+  .hero__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+  }
+
+  .hero__visual-card {
+    max-width: 560px;
+  }
+
+  .hero__visual-stats {
+    gap: 28px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+    min-height: auto;
+    padding-bottom: 60px;
+  }
+
+  .hero__badge {
+    padding: 8px 16px;
+    font-size: 12px;
+  }
+
+  .hero__visual-card {
+    max-width: 100%;
+  }
+
+  .hero__visual-stats {
+    gap: 20px;
+  }
+
+  .hero__visual-stat-number {
+    font-size: 20px;
+  }
+
+  .hero__visual-stat-label {
+    font-size: 11px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 50px;
+  }
+
+  .hero__title {
+    font-size: 1.8rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.95rem;
+  }
+
+  .hero__cta .btn--large {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .hero__visual-task {
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .hero__visual-task-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .hero__visual-task-text {
+    font-size: 13px;
+  }
+
+  .hero__visual-stats {
+    gap: 16px;
+  }
+}

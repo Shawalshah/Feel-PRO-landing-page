@@ -1,0 +1,352 @@
+/* Focus Like PRO Section - Dark Theme */
+.focus-pro {
+  padding: var(--section-padding) 0;
+  background: linear-gradient(135deg, #0A0A0F 0%, #111118 50%, #0A0A0F 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.focus-pro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 30%, rgba(77, 93, 251, 0.12) 0%, transparent 50%),
+    radial-gradient(circle at 70% 70%, rgba(8, 200, 246, 0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.focus-pro__container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+  position: relative;
+  z-index: 2;
+}
+
+.focus-pro__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 70px);
+  align-items: center;
+}
+
+/* Visual - Timer Card */
+.focus-pro__visual {
+  display: flex;
+  justify-content: center;
+}
+
+.focus-pro__timer-card {
+  width: 100%;
+  max-width: 360px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 28px;
+  padding: clamp(24px, 4vw, 32px);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.3);
+}
+
+.focus-pro__timer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: clamp(24px, 4vh, 32px);
+}
+
+.focus-pro__timer-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.6);
+  letter-spacing: -0.01em;
+}
+
+.focus-pro__timer-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #10B981;
+}
+
+.focus-pro__timer-dot {
+  width: 7px;
+  height: 7px;
+  background: #10B981;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.15); }
+}
+
+.focus-pro__timer-display {
+  position: relative;
+  width: clamp(160px, 20vw, 180px);
+  height: clamp(160px, 20vw, 180px);
+  margin: 0 auto clamp(24px, 4vh, 32px);
+}
+
+.focus-pro__timer-ring {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 16px rgba(77, 93, 251, 0.25));
+}
+
+.focus-pro__timer-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.focus-pro__timer-time {
+  font-size: clamp(36px, 5vw, 46px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+}
+
+.focus-pro__timer-task {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.focus-pro__timer-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: clamp(24px, 4vh, 32px);
+}
+
+.focus-pro__timer-btn {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4D5DFB 0%, #08C8F6 100%);
+  color: white;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 28px rgba(77, 93, 251, 0.35);
+}
+
+.focus-pro__timer-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 36px rgba(77, 93, 251, 0.45);
+}
+
+.focus-pro__timer-btn--play {
+  background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+  box-shadow: 0 6px 28px rgba(16, 185, 129, 0.35);
+}
+
+.focus-pro__timer-btn--play:hover {
+  box-shadow: 0 10px 36px rgba(16, 185, 129, 0.45);
+}
+
+.focus-pro__timer-info {
+  display: flex;
+  justify-content: center;
+  gap: clamp(32px, 5vw, 48px);
+}
+
+.focus-pro__timer-stat {
+  text-align: center;
+}
+
+.focus-pro__timer-stat-value {
+  display: block;
+  font-size: clamp(22px, 3vw, 26px);
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.focus-pro__timer-stat-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 500;
+}
+
+/* Content */
+.focus-pro__content {
+  max-width: 440px;
+}
+
+.focus-pro__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid rgba(77, 93, 251, 0.35);
+  color: #08C8F6;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 50px;
+  margin-bottom: 24px;
+}
+
+.focus-pro__title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.focus-pro__title span {
+  background: linear-gradient(135deg, #4D5DFB 0%, #08C8F6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.focus-pro__desc {
+  font-size: clamp(15px, 2vw, 16px);
+  color: rgba(255, 255, 255, 0.55);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+.focus-pro__features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.focus-pro__feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 4px;
+  transition: all 0.3s ease;
+}
+
+.focus-pro__feature:hover {
+  transform: translateX(6px);
+}
+
+.focus-pro__feature-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(77, 93, 251, 0.12);
+  color: #08C8F6;
+  border-radius: 11px;
+  border: 1px solid rgba(77, 93, 251, 0.15);
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+.focus-pro__feature:hover .focus-pro__feature-icon {
+  background: linear-gradient(135deg, #4D5DFB 0%, #08C8F6 100%);
+  color: white;
+  border-color: transparent;
+}
+
+.focus-pro__feature h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
+}
+
+.focus-pro__feature p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* Responsive - Large Screens */
+@media (min-width: 1200px) and (max-height: 900px) {
+  .focus-pro__timer-card {
+    max-width: 320px;
+    padding: 24px;
+  }
+
+  .focus-pro__timer-display {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 24px;
+  }
+
+  .focus-pro__timer-time {
+    font-size: 38px;
+  }
+
+  .focus-pro__timer-btn {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .focus-pro__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .focus-pro__visual {
+    order: 2;
+  }
+
+  .focus-pro__content {
+    text-align: center;
+    max-width: 100%;
+  }
+
+  .focus-pro__features {
+    max-width: 380px;
+    margin: 0 auto;
+    text-align: left;
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 600px) {
+  .focus-pro__timer-card {
+    padding: 24px;
+  }
+
+  .focus-pro__timer-display {
+    width: 150px;
+    height: 150px;
+  }
+
+  .focus-pro__timer-time {
+    font-size: 36px;
+  }
+
+  .focus-pro__timer-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .focus-pro__feature-icon {
+    width: 38px;
+    height: 38px;
+  }
+}
