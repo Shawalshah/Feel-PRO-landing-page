@@ -50,34 +50,13 @@ const CTACard = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.3, duration: 0.5 }}
             >
-              <div className="cta-card__phone">
+              <div className="cta-card__phone-frame">
                 <div className="cta-card__phone-notch"></div>
-                <div className="cta-card__phone-screen">
-                  <div className="cta-card__phone-header">
-                    <span>Feel PRO</span>
-                    <span className="cta-card__phone-time">9:41</span>
-                  </div>
-                  <div className="cta-card__phone-content">
-                    <div className="cta-card__phone-greeting">
-                      <span>Good morning! 👋</span>
-                      <p>Ready to conquer today?</p>
-                    </div>
-                    <div className="cta-card__phone-tasks">
-                      <div className="cta-card__phone-task">
-                        <span className="cta-card__phone-dot"></span>
-                        <span>Team standup</span>
-                      </div>
-                      <div className="cta-card__phone-task">
-                        <span className="cta-card__phone-dot"></span>
-                        <span>Review proposal</span>
-                      </div>
-                      <div className="cta-card__phone-task">
-                        <span className="cta-card__phone-dot"></span>
-                        <span>Deep focus: 2pm</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src="/assets/Download Card mockup.jpg" 
+                  alt="Feel PRO App Preview" 
+                  className="cta-card__mockup-img"
+                />
               </div>
             </motion.div>
           </div>
