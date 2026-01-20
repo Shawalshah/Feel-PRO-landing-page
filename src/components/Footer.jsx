@@ -63,7 +63,7 @@ const Footer = () => {
         {/* Contact */}
         <div className="footer__contact">
           <Mail size={18} />
-          <a href="mailto:hello@feelpro.app">hello@feelpro.app</a>
+          <a href="mailto:hello@feelpro.app">info@feelpro.me</a>
         </div>
 
         {/* Bottom */}

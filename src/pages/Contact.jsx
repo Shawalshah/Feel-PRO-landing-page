@@ -50,7 +50,7 @@ const Contact = () => {
             <div className="contact__card">
               <Mail size={24} />
               <h3>Email</h3>
-              <p>hello@feelpro.app</p>
+              <p>info@feelpro.me</p>
             </div>
           </motion.div>
 
